@@ -1,0 +1,2 @@
+Prefix plugins/Trimmomatic/example/
+Plugin Trimmomatic inputfile parameters.txt outputfile sequences.fastq

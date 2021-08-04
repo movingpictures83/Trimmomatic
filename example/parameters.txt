@@ -1,0 +1,6 @@
+PE
+plugins/Trimmomatic/example/R1.fastq
+plugins/Trimmomatic/example/R2.fastq
+ILLUMINACLIP:plugins/Trimmomatic/example/TruSeq3-PE.fa:2:30:5
+SLIDINGWINDOW:4:20
+MINLEN:101
