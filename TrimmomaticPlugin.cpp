@@ -3,6 +3,14 @@
 #include <stdlib.h>
 #include "TrimmomaticPlugin.h"
 
+bool hasEnding (std::string const &fullString, std::string const &ending) {
+    if (fullString.length() >= ending.length()) {
+        return (0 == fullString.compare (fullString.length() - ending.length(), ending.length(), ending));
+    } else {
+        return false;
+    }
+}
+
 void TrimmomaticPlugin::input(std::string file) {
  inputfile = file;
  std::ifstream ifile(inputfile.c_str(), std::ios::in);
@@ -22,6 +30,9 @@ void TrimmomaticPlugin::output(std::string file) {
    std::string command = "trimmomatic ";
  for (int i = 0; i < arguments.size(); i++) {
 	 if (arguments[i].size() != 0) {
+		 if (hasEnding(arguments[i], "fastq")) {
+                    arguments[i] = std::string(PluginManager::prefix()) + "/" + arguments[i];
+		 }
     command += arguments[i];
     command += " ";
 	 }
